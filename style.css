@@ -1,0 +1,87 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex; /*porque solo tenemos un elemento que es el formulario*/
+    justify-content: center; /* y quiero que lo centre horizontalmente*/
+    align-items: center; /* y que lo centre verticalmente*/
+    font-family: 'Raleway', sans-serif;
+}
+form{
+    width: 30%;
+    height: 500px;
+    box-shadow: 0 0 6px rgb(0, 0, .6); /*para darle una sombra al borde del formulario*/
+}
+.title{
+    text-align: center;
+    font-weight: 300; /*que la letra sea de 300 que fue la que elegimos en google font*/
+    font-size: 30px;
+    background: #3a3a98;
+    line-height: 100px;
+    color: #fff;
+}
+.contenedor-form{
+    width: 80%;
+    margin: 0 auto;
+    height: calc(100% -100px);
+}
+.grupo{
+    margin-top: 50px;
+    position: relative; /*porque quiero que los label sean absolute para poder hacer un efecto*/
+}
+input{
+    background: none;
+    color: #a4d3e9;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none; /* outline es el borde que aparece cuando nos ponemos en el input*/
+    border-bottom: 1px solid #a4d3e9;
+}
+label{
+    color: #a4d3e9;
+    font-size: 16px;
+    position: absolute;
+    top: 10px; /*si ponemos esto el nombre del label se pasa a la parte de arriba*/
+    left: 5px; /*y empujar el label 5px a la izquierda*/
+    transition: top .5s, font-size .5s, color .5s; /*para que pase algo le vamos a dar una propiedad al input*/
+}
+ /*al input le vamos a poner una propiedad que es una pseudoclase :focus
+ es decir cuando el mouse o el usuario este en ese input este activo
+ quiero que el hermano adyasente (+) label tenga un efecto y le ponemos tambien la 
+ pseudoclase valid que sirve para decir que el input es valido */
+
+ input:focus+label,
+ input:valid+label{
+    top: -14px;
+    font-size: 12px;
+    color: #2196f3;
+ }
+ input:invalid+label{
+    color: tomato;
+ }
+ input[type="submit"]{
+    width: 120px;
+    margin: 40px auto 0 auto;
+    background: #3a3a98;
+    color: #fff;
+    cursor: pointer; /*se va a ver la mano en el cursor*/
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+ }
+ @media screen and (max-width:900px){
+    .form{
+        width: 45%;
+    }
+}
+@media screen and (max-width:500px){
+    .form{
+        width: 92%;
+    }
+}
